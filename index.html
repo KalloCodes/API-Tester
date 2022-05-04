@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Random Dog Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>Click the button below to get a random dog!</header>
+
+    <form action="/action_page.php">
+        <label for="quantity">Pick up to ten dogs</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="10">
+        <input type="submit">
+    </form>
+    <!--How do I access this? Think I need something to with PHP
+    but I'm completely new to that-->
+
+    <button onclick="getImages()">Click me!</button>
+</body>
+
+<script>
+    function getImages() {
+        fetch("https://dog.ceo/api/breeds/image/random/1")
+        .then(response => response.json())
+        .then(data => showDogs(data));
+    }
+
+    function showDogs(data) {
+        var dogArray = data.message;
+        for (var dog of dogArray) {
+            var img= document.createElement("img");
+            img.src = dog;
+            document.body.appendChild(img);
+        }
+    }
+</script>
+
+</html>
