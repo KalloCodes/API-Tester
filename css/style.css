@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    background-color: aliceblue;
+    margin: auto;
+}
+
+header {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: auto;
+    font-size: larger;
+    margin: 3% auto;
+}
+
+form {
+    display: flex;
+    justify-content: space-around;
+    background-color: grey;
+    padding: 2%;
+}
+
+button {
+    width: 100px;
+}
