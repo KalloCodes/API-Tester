@@ -10,13 +10,17 @@ header {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: auto;
     font-size: larger;
-    margin: 3% auto;
+    margin: 3%;
+}
+
+.linkdiv {
+    background-color: gray;
 }
 
 form {
     display: flex;
     justify-content: space-around;
-    background-color: grey;
+    background-color: gray;
     padding: 2%;
 }
 
