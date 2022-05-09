@@ -9,32 +9,104 @@
 <body>
     <header>Click the button below to get a random dog!</header>
 
+    <div id="linkdiv">
+
+    </div>
+
     <form action="/action_page.php">
-        <label for="quantity">Pick up to ten dogs</label>
+        <label for="quantity">Pick up to 10 dogs</label>
         <input type="number" id="quantity" name="quantity" min="1" max="10">
-        <input type="submit">
+        <button onclick="howMany()">Submit!</button>
     </form>
     <!--How do I access this? Think I need something to with PHP
     but I'm completely new to that-->
 
     <button onclick="getImages()">Click me!</button>
+
+    <p id="dog-amount-text"></p>
+
+    <div id="img-holder">
+    </div>
 </body>
 
 <script>
-    function getImages() {
-        fetch("https://dog.ceo/api/breeds/image/random/1")
-        .then(response => response.json())
-        .then(data => showDogs(data));
-    }
-
-    function showDogs(data) {
-        var dogArray = data.message;
-        for (var dog of dogArray) {
-            var img= document.createElement("img");
-            img.src = dog;
-            document.body.appendChild(img);
+    let counter = 1;
+    
+    function howMany() {
+        let x = document.getElementById("quantity").value;
+        console.log(x);
+        if (x == 1) {
+            document.getElementById("dog-amount-text").innerHTML = "Find me 1 dog!";
+        } else {
+            document.getElementById("dog-amount-text").innerHTML = "Find me " + x + " dogs!";
         }
     }
+
+    function getImages() {
+        fetch("https://dog.ceo/api/breeds/image/random/10")
+        .then(response => response.json())
+        .then(data => processImages(data));
+    }
+
+    /*
+    function processImages(data) {
+        console.log(data.message);
+        var dogArray = data.message;
+        for (var URL of dogArray) {
+            var img = document.createElement("img");
+            img.src = URL;
+            document.body.appendChild(img);
+            var source = document.createElement("p");
+            source.innerHTML = URL;
+            document.body.appendChild(source);
+        }
+    }
+    */
+
+    function processImages(data) {
+        console.log("This works!");
+        /*Checks if there's already a picdiv, and if so, deletes it*/
+        if (!!document.getElementById("picdiv") === true) {
+            const element = document.getElementById("picdiv");
+            element.remove();
+        }
+
+        /*Creates a new picdiv, styled as a vertical flexbox*/
+        let picbox = document.createElement("div");
+        picbox.innerText = "Checking";
+        document.body.appendChild(picbox);
+        picbox.setAttribute("id","picdiv");
+        document.getElementById("picdiv").style.display = "flex";
+        document.getElementById("picdiv").style.flexDirection = "column";
+        document.getElementById("picdiv").style.backgroundColor = "gray";
+    
+        var dogArray = data.message;
+        for (var URL of dogArray) {
+            var flexdiv = document.createElement("div");
+            flexdiv.style.backgroundColor = "blue";
+            flexdiv.style.margin = "10px";
+            flexdiv.style.display = "flex";
+            var number = document.createElement("p");
+            number.innerHTML = counter;
+            var img = document.createElement("img");
+            img.src = URL;
+            flexdiv.appendChild(number);
+            flexdiv.appendChild(img);
+            document.getElementById("picdiv").appendChild(flexdiv);
+        }
+
+        /*
+        for (var URL of dogArray) {
+            var flexdiv = document.createElement("div");
+            var number = document.createElement("p");
+            number.innerHTML = counter;
+            flex
+            var img = document.createElement("img");
+            img.src = URL;
+        }
+        */
+    }
+
 </script>
 
 </html>
