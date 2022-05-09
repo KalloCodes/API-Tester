@@ -1,7 +1,7 @@
 body {
     display: flex;
     flex-direction: column;
-    max-width: 600px;
+    max-width: 700px;
     background-color: aliceblue;
     margin: auto;
 }
@@ -10,11 +10,14 @@ header {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: auto;
     font-size: larger;
-    margin: 3%;
+    margin: 3% auto;
+    text-decoration: underline;
 }
 
-.linkdiv {
-    background-color: gray;
+#linkdiv {
+    background-color: lightblue;
+    margin-bottom: 10px;
+    line-height: 0px;
 }
 
 form {
@@ -26,4 +29,28 @@ form {
 
 button {
     width: 100px;
+}
+
+#picdiv {
+    display: flex;
+    flex-direction: column;
+    background-color: lightblue;
+    margin-bottom: 8%;
+    flex-wrap: wrap;
+}
+
+.box {
+    max-width: 280px;
+    display: flex;
+    background-color: white;
+    margin: 10px;
+}
+
+img {
+    max-width: 250px;
+    max-height: 250px;
+}
+
+p {
+    text-decoration: none;
 }
