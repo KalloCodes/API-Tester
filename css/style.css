@@ -20,11 +20,12 @@ header {
     line-height: 0px;
 }
 
-form {
+#formdiv {
     display: flex;
     justify-content: space-around;
     background-color: gray;
     padding: 2%;
+    margin: 2%;
 }
 
 button {
@@ -33,24 +34,27 @@ button {
 
 #picdiv {
     display: flex;
-    flex-direction: column;
     background-color: lightblue;
     margin-bottom: 8%;
     flex-wrap: wrap;
+    align-content: stretch;
 }
 
 .box {
-    max-width: 280px;
+    max-width: 47%;
     display: flex;
-    background-color: white;
+    flex-direction: column;
+    background-color: aliceblue;
+    justify-content: center;
     margin: 10px;
 }
 
 img {
-    max-width: 250px;
-    max-height: 250px;
+    width: 100%;
+    height: auto;
 }
 
 p {
     text-decoration: none;
+    color: black;
 }

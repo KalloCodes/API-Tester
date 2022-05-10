@@ -9,106 +9,22 @@
 <body>
     <header>Click the button below to get some dogs!</header>
 
-    <div id="linkdiv">
+    <div id="linkdiv"></div>
 
+    <div id="formdiv">
+        <form action="/action_page.php">
+            <label for="quantity">Pick up to 10 dogs</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="10">
+        </form>
+
+        <button onclick="getImages()">Find some dogs!</button>
     </div>
-
-    <form action="/action_page.php">
-        <label for="quantity">Pick up to 10 dogs</label>
-        <input type="number" id="quantity" name="quantity" min="1" max="10">
-        <button onclick="howMany()">Find some dogs!</button>
-    </form>
-
-    <button onclick="getImages()">Click me!</button>
-
-    <p id="dog-amount-text"></p>
 
     <div id="img-holder">
     </div>
 </body>
 
-<script>
-    let counter = 1;
-    
-    function howMany() {
-        let x = document.getElementById("quantity").value;
-        console.log(x);
-        if (x == 1) {
-            document.getElementById("dog-amount-text").innerHTML = "Finding 1 dog!";
-        } else {
-            document.getElementById("dog-amount-text").innerHTML = "Finding " + x + " dogs!";
-        }
-    }
+<script src="script.js"></script>
 
-    function getImages() {
-        let y = document.getElementById("quantity").value;
-        console.log("y is " + y);
-        let fetcher = "https://dog.ceo/api/breeds/image/random/" + y;
-        fetch(fetcher)
-        .then(response => response.json())
-        .then(data => processImages(data));
-    }
-
-    /*
-    function processImages(data) {
-        console.log(data.message);
-        var dogArray = data.message;
-        for (var URL of dogArray) {
-            var img = document.createElement("img");
-            img.src = URL;
-            document.body.appendChild(img);
-            var source = document.createElement("p");
-            source.innerHTML = URL;
-            document.body.appendChild(source);
-        }
-    }
-    */
-
-    function processImages(data) {
-
-        /*Checks if there's already a picdiv, and if so, deletes it*/
-        if (!!document.getElementById("picdiv") === true) {
-            const element = document.getElementById("picdiv");
-            element.remove();
-        }
-
-        /*Creates a new picdiv, styled as a vertical flexbox*/
-        let picbox = document.createElement("div");
-        picbox.innerText = "Checking";
-        document.body.appendChild(picbox);
-        picbox.setAttribute("id","picdiv");
-    
-        var dogArray = data.message;
-        for (var URL of dogArray) {
-            var flexdiv = document.createElement("a");
-            flexdiv.setAttribute("class", "box")
-            flexdiv.setAttribute("href", URL)
-            var number = document.createElement("p");
-            number.innerHTML = counter + ": ";
-            var img = document.createElement("img");
-            img.src = URL;
-            flexdiv.appendChild(number);
-            flexdiv.appendChild(img);
-            document.getElementById("picdiv").appendChild(flexdiv);
-
-            var newlink = document.createElement("p");
-            newlink.innerHTML = counter + ": " + URL;
-            document.getElementById("linkdiv").appendChild(newlink);
-            counter++;
-        }
-
-        /*
-        for (var URL of dogArray) {
-            var flexdiv = document.createElement("div");
-            var number = document.createElement("p");
-            number.innerHTML = counter;
-            flex
-            var img = document.createElement("img");
-            img.src = URL;
-        }
-        */
-    }
-
-</script>
 
 </html>
