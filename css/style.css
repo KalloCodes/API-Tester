@@ -1,4 +1,5 @@
 body {
+    padding-top: 3%;
     display: flex;
     flex-direction: column;
     max-width: 700px;
@@ -18,18 +19,27 @@ header {
     background-color: lightblue;
     margin-bottom: 10px;
     line-height: 0px;
+    border-style: solid;
+    border-color: gray;
 }
 
 #formdiv {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: gray;
     padding: 2%;
     margin: 2%;
 }
 
+form {
+    margin: auto;
+}
+
 button {
-    width: 100px;
+    width: 150px;
+    height: 30px;
+    margin: auto;
 }
 
 #picdiv {
@@ -38,10 +48,12 @@ button {
     margin-bottom: 8%;
     flex-wrap: wrap;
     align-content: stretch;
+    border-style: solid;
+    border-color: gray;
 }
 
 .box {
-    max-width: 47%;
+    max-width: 46%;
     display: flex;
     flex-direction: column;
     background-color: aliceblue;
@@ -57,4 +69,48 @@ img {
 p {
     text-decoration: none;
     color: black;
+}
+
+@media only screen and (min-width: 1000px) {
+    body {
+        display: grid;
+        grid-template-columns: [left] 35% [centre] 58% [right];
+        column-gap: 5%;
+        grid-template-rows: [top] 50px [bottom-title top-form] 150px [bottom-form top-links] 1fr [bottom];
+        row-gap: 2%;
+        max-width: 1000px;
+    }
+
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        font-size: 1.8rem;
+    }
+
+    #formdiv {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    #linkdiv {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        height: auto;
+    }
+
+    #picdiv {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 4;
+        margin-top: 20px;
+    }
 }
