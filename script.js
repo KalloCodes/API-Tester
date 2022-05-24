@@ -133,9 +133,19 @@ function processImages(data) {
         flexdiv.appendChild(img);
         document.getElementById("picdiv").appendChild(flexdiv);
 
-        var newlink = document.createElement("p");
-        newlink.innerHTML = counter + ": " + URL;
-        document.getElementById("linkdiv").appendChild(newlink);
+        if (window.innerWidth < 540) {
+            console.log("we have liftoff");
+            var newlink = document.createElement("a");
+            newlink.innerHTML = counter + ": " + output;
+            newlink.href = URL;
+            document.getElementById("linkdiv").appendChild(newlink);
+            linebreak = document.createElement("br");
+            document.getElementById("linkdiv").appendChild(linebreak);
+        } else {
+            var newlink = document.createElement("p");
+            newlink.innerHTML = counter + ": " + URL;
+            document.getElementById("linkdiv").appendChild(newlink);
+        }
 
         counter++;
     }
