@@ -117,6 +117,9 @@ function processImages(data) {
             case "Bernese Mountain":
                 output = "Bernese Mountain Dog";
                 break;
+            case "Lapphund Finnish":
+                output = "Finnish Lapphund";
+                break;
         }
 
 
