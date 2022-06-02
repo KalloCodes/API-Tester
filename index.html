@@ -2,29 +2,27 @@
 <html lang="en">
 
 <head>
-    <title>Dog Generator</title>
+    <title>API Landing Page</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Quicksand:wght@300&display=swap" rel="stylesheet"> 
 </head>
 
 <body>
-    <header>Premium Dog Generator</header>
+    <div id="backer">
+        <div id="topdiv">
+            <header>My API Landing Page</header>
+            <hr id="topline">
+        </div>
 
-    <div id="linkdiv"></div>
-
-    <div id="formdiv">
-        <form action="/action_page.php">
-            <label for="quantity">Pick up to 10 dogs</label>
-            <input type="number" id="quantity" name="quantity" min="1" max="10">
-        </form>
-
-        <button onclick="getImages()">Bring me some dogs!</button>
-    </div>
-
-    <div id="img-holder">
+        <div style="cursor: pointer;" onclick="window.location='dog.html';">
+            <h2>Dog Generator</h2>
+            <hr>
+            <p>My first work on an API, initially following a guide by ClickMCR. After running this successfully, I had an idea for a bigger, more useable format, and set about building it.</p>
+            <hr>
+        </div>
     </div>
 </body>
-
-<script src="script.js"></script>
-
 
 </html>
