@@ -12,19 +12,19 @@
     <div id="linkdiv"></div>
 
     <div id="formdiv">
-        <form action="/action_page.php">
+        <form onSubmit="return false;">
             <label for="quantity">Pick up to 10 dogs</label>
-            <input type="number" id="quantity" name="quantity" min="1" max="10">
+            <input type="number" id="quantity" name="quantity" min="1" max="10" onkeydown="if (event.keyCode == 13) getImages()">
         </form>
 
-        <button onclick="getImages()">Bring me some dogs!</button>
+        <button id="button" type="submit" onclick="getImages()">Bring me some dogs!</button>
     </div>
 
     <div id="img-holder">
     </div>
 </body>
 
-<script src="script.js"></script>
+<script src="dogscript.js"></script>
 
 
 </html>
